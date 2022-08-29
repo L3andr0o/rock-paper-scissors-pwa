@@ -1,10 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
+import { usePick } from '../context/pickContext';
 
 
 export default function Pick({pick,icon}){
+
+    const {pickHandler} = usePick()
+
     return(
-        <Wrapper className={pick}>
+        <Wrapper className={pick} onClick={()=>pickHandler(pick)}>
             <div>
                 <img src={icon} alt='paper' />
             </div>
@@ -13,8 +17,8 @@ export default function Pick({pick,icon}){
 };
 
 const Wrapper = styled.div`
-    width: 7em;
-    height: 7em;
+    width: 6.5em;
+    height: 6.5em;
     border-radius: 50%;
     position: relative;
     display: flex;
@@ -41,6 +45,10 @@ const Wrapper = styled.div`
         display: flex;
         justify-content: center;
         align-items: center;
+        img{
+            width: 2.5em;
+            height: 2.5em;
+        }
     }
 `
 
