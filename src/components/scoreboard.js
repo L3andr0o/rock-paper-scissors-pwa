@@ -5,7 +5,7 @@ import { usePick } from '../context/pickContext';
 
 export default function Scoreboard(){
 
-    const {userPick} = usePick()
+    const {score} = usePick()
 
     return(
         <Wrapper>
@@ -14,7 +14,7 @@ export default function Scoreboard(){
             </div>
             <div className='score' >
                 <h3>SCORE</h3>
-                {userPick ? <h3>0</h3> : <h3>1</h3>}
+                <h3>{score}</h3>
             </div>
         </Wrapper>
     );

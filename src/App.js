@@ -3,7 +3,8 @@ import GlobalStyles from './assets/GlobalStyles';
 import Main from './components/main';
 import Scoreboard from './components/scoreboard';
 import Result from './components/result';
-import PickProvider, { usePick } from './context/pickContext';
+import { usePick } from './context/pickContext';
+
 
 
 function App() {
