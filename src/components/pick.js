@@ -24,7 +24,11 @@ const Wrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-
+    cursor: pointer;
+    transition: transform .3s cubic-bezier(0.23, 1, 0.320, 1);
+    &:hover{
+        transform: scale(1.1);
+    }
     @media (min-width: 375px) {
         height: 7.5em;
         width: 7.5em;
@@ -32,6 +36,10 @@ const Wrapper = styled.div`
     @media (min-width: 425px) {
         height: 8.5em;
         width: 8.5em;
+    }
+    @media (min-width: 768px) {
+        height: 10em;
+        width: 10em;
     }
 
 
@@ -59,6 +67,10 @@ const Wrapper = styled.div`
         img{
             width: 2.5em;
             height: 2.5em;
+            @media (min-width: 768px) {
+                height: 3.5em;
+                width: 3.5em;
+            }
         }
     }
 `

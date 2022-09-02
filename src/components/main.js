@@ -27,7 +27,10 @@ const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     position: relative;
-    max-width: 340px;
+    max-width: 380px;
+    @media (min-width: 425px) {
+        margin: 80px auto;
+      }
     .bg{
       position: absolute;
       left: 10%;

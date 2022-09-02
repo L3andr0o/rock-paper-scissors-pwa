@@ -44,9 +44,30 @@ const Wrapper = styled.div`
     border: 1px solid #fff;
     width: 7em;
     text-align: center;
+    overflow: hidden;
     color: #fff;
     padding: 8px;
     border-radius: 8px;
+    cursor: pointer;
+    transition: color .3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    &:hover{
+      color: #000;
+      &::after{
+        transform: translateX(0);
+      }
+    }
+    &::after{
+      content: ' ';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #fff;
+      z-index: -200;
+      transform: translateX(-100%);
+      transition: all .3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
   }
 
 `

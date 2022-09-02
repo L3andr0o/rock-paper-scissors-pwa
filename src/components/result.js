@@ -30,14 +30,17 @@ const Wrapper = styled.div`
     width: 80%;
     margin: 100px auto;
     z-index: -10 !important;
-    max-width: 340px;
+    max-width: 380px;
+    @media (min-width: 425px) {
+        margin: 80px auto;
+      }
     .winner{
         margin: 0 auto;
         display: flex;
         flex-direction: column;
         width: fit-content;
         margin-top: 80px;
-        transform: translateX(-300%);
+        transform: translateX(-100vw);
         animation: translate .3s cubic-bezier(0.175, 0.885, 0.32, 1.275) 2s 1 normal forwards;
         @keyframes translate {
             100%{
@@ -60,6 +63,13 @@ const Wrapper = styled.div`
             letter-spacing: 2px;
             border-radius: 5px;
             margin-top: 10px;
+            cursor: pointer;
+            border: 1px solid #fff;
+            transition: all .3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            &:hover{
+                color: #fff;
+                background-color: transparent;
+            }
         }
     }
     .picks{
@@ -93,6 +103,12 @@ const Wrapper = styled.div`
                 left: calc(50% - 7.5em);
                 transform: scale(0);
                 animation: appear .3s cubic-bezier(0.175, 0.885, 0.32, 1.275) 2s 1 normal forwards;
+                @media (min-width: 768px) {
+                    width: 25em;
+                    height: 25em;
+                    top: calc(50% - 12.5em);
+                    left: calc(50% - 12.5em);
+                }
             }
         }
         .homePick{
@@ -108,7 +124,12 @@ const Wrapper = styled.div`
                 left: calc(50% - 7.5em);
                 transform: scale(0);
                 animation: appear .3s cubic-bezier(0.175, 0.885, 0.32, 1.275) 2s 1 normal forwards;
-
+                @media (min-width: 768px) {
+                    width: 25em;
+                    height: 25em;
+                    top: calc(50% - 12.5em);
+                    left: calc(50% - 12.5em);
+                }
             }
             @keyframes appear {
             100%{
@@ -129,6 +150,10 @@ const Wrapper = styled.div`
         @media (min-width: 425px) {
         height: 8.5em;
         width: 8.5em;
+        }
+        @media (min-width: 768px) {
+        height: 10em;
+        width: 10em;
         }
         .paper,.scissors,.rock{
             animation: appear .3s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0s 1 normal forwards;
