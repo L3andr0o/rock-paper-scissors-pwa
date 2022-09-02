@@ -27,9 +27,9 @@ const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     position: relative;
+    max-width: 340px;
     .bg{
       position: absolute;
-  
       left: 10%;
       width: 80%;
       height: 80%;
@@ -44,5 +44,8 @@ const Wrapper = styled.div`
     }
     .bottom{
       justify-content: center;
+      @media (min-width: 375px) {
+        margin-top: 20px;
+      }
     }
 `

@@ -10,11 +10,11 @@ export default function Result(){
         <Wrapper>
             <div className='picks'>
                 <div className='first-div'>
-                    <div className='userPick'>{userPick}</div>
+                    <div className={`userPick ${winner}`}>{userPick}</div>
                     <span>YOU PICKED</span>
                 </div>
                 <div className='second-div'>
-                    <div className='homePick'>{homePick}</div>
+                    <div className={`homePick ${winner}`}>{homePick}</div>
                     <span>THE HOUSE PICKED</span>
                 </div>
             </div>
@@ -30,6 +30,7 @@ const Wrapper = styled.div`
     width: 80%;
     margin: 100px auto;
     z-index: -10 !important;
+    max-width: 340px;
     .winner{
         margin: 0 auto;
         display: flex;
@@ -79,11 +80,56 @@ const Wrapper = styled.div`
             font-weight: 600;
             letter-spacing: 1px;
         }
+        .userPick{
+            &.WIN::after{
+                width: 15em;
+                height: 15em;
+                position: absolute;
+                content: '';
+                background-color: #fff1;
+                z-index: -100;
+                border-radius: 50%;
+                top: calc(50% - 7.5em);
+                left: calc(50% - 7.5em);
+                transform: scale(0);
+                animation: appear .3s cubic-bezier(0.175, 0.885, 0.32, 1.275) 2s 1 normal forwards;
+            }
+        }
+        .homePick{
+            &.LOSE::after{
+                width: 15em;
+                height: 15em;
+                position: absolute;
+                content: '';
+                background-color: #fff1;
+                z-index: -100;
+                border-radius: 50%;
+                top: calc(50% - 7.5em);
+                left: calc(50% - 7.5em);
+                transform: scale(0);
+                animation: appear .3s cubic-bezier(0.175, 0.885, 0.32, 1.275) 2s 1 normal forwards;
+
+            }
+            @keyframes appear {
+            100%{
+                transform: scale(1);
+            }
+        }
+        }
         .userPick,.homePick{
         height: 6.5em;
         width: 6.5em;
         background-color: hsl(237, 49%, 15%);
         border-radius: 50%;
+        position: relative;
+        @media (min-width: 375px) {
+        height: 7.5em;
+        width: 7.5em;
+        }
+        @media (min-width: 425px) {
+        height: 8.5em;
+        width: 8.5em;
+        }
         .paper,.scissors,.rock{
             animation: appear .3s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0s 1 normal forwards;
             transform: scale(0);

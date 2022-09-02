@@ -24,6 +24,17 @@ const Wrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+
+    @media (min-width: 375px) {
+        height: 7.5em;
+        width: 7.5em;
+    }
+    @media (min-width: 425px) {
+        height: 8.5em;
+        width: 8.5em;
+    }
+
+
     &.paper{
     background-color: hsl(230, 89%, 65%);
     filter: drop-shadow(0px 4px 0px hsl(230, 90%, 60%));

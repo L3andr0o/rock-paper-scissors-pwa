@@ -16,6 +16,11 @@ export default function PickProvider({children}){
     const [homePick, setHomePick] = useState(null);
     const [winner, setWinner] = useState(null);
     const [score, setScore] = useState(0);
+    const [modalState, setModalState] = useState(false);
+
+    const increaseScore = () => (setScore(Number(score + 1)));
+    const decreaseScore = () => (setScore(Number(score - 1)));
+    
 
     const pickHandler = (pick) =>{
         const random = Number(Math.random() * 100).toFixed(0);
@@ -30,14 +35,17 @@ export default function PickProvider({children}){
         if(pick === 'rock'){
             if(random >= 50){
                 setHomePick(<Pick pick='scissors housePick' icon={scissors} />);
-                setScore(score + 1);
+                // setScore(Number(score + 1));
+                setTimeout(increaseScore,2000)
+                localStorage.setItem('score', Number(score + 1))
                 setWinner('WIN');
                 return
             }setHomePick(<Pick pick='paper housePick' icon={paper} />);
             setWinner('LOSE');
             if(score > 0){
-                setScore(score - 1);
-                localStorage.setItem('score', score - 1)
+                // setScore(Number(score - 1));
+                setTimeout(decreaseScore,2000)
+                localStorage.setItem('score', Number(score - 1))
             }
         }
             
@@ -45,14 +53,16 @@ export default function PickProvider({children}){
             if(random >= 50){
                 setHomePick(<Pick pick='rock housePick' icon={rock} />);
                 setWinner('WIN');
-                setScore(score + 1);
-                localStorage.setItem('score',score + 1)
+                // setScore(Number(score + 1));
+                setTimeout(increaseScore,2000)
+                localStorage.setItem('score', Number(score + 1))
                 return
             }setHomePick(<Pick pick='scissors housePick' icon={scissors} />);
             setWinner('LOSE');
             if(score > 0){
-                setScore(score - 1);
-                localStorage.setItem('score', score - 1)
+                // setScore(Number(score - 1));
+                setTimeout(decreaseScore,2000)
+                localStorage.setItem('score', Number(score - 1))
             }
         }
 
@@ -60,26 +70,37 @@ export default function PickProvider({children}){
             if(random >= 50){
                 setHomePick(<Pick pick='paper housePick' icon={paper} />);
                 setWinner('WIN');
-                setScore(score + 1);
-                localStorage.setItem('score',score + 1)
+                // setScore(Number(score + 1));
+                setTimeout(increaseScore,2000)
+                localStorage.setItem('score',Number(score + 1))
                 return
             }setHomePick(<Pick pick='rock housePick' icon={rock} />);
             setWinner('LOSE');
             if(score > 0){
-                setScore(score - 1);
-                localStorage.setItem('score', score - 1)
+                // setScore(Number(score - 1));
+                setTimeout(decreaseScore,2000)
+                localStorage.setItem('score', Number(score - 1))
             }
         }
     }
 
     useEffect(()=>{
         if(localStorage.getItem('score')){
-            setScore(localStorage.getItem('score'))
+            setScore(Number(localStorage.getItem('score')))
         }
     },[])
 
     return(
-        <pickContext.Provider value={{userPick, homePick, pickHandler, winner, setUserPick, score}}>
+        <pickContext.Provider 
+        value={{
+            userPick, 
+            homePick, 
+            pickHandler, 
+            winner, 
+            setUserPick, 
+            score, 
+            setModalState, 
+            modalState}}>
             {children}
         </pickContext.Provider>
     )

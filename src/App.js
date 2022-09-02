@@ -4,13 +4,13 @@ import Main from './components/main';
 import Scoreboard from './components/scoreboard';
 import Result from './components/result';
 import { usePick } from './context/pickContext';
+import RulesModal from './components/rules-modal';
 
 
 
 function App() {
 
-  const {userPick} = usePick()
-
+  const {userPick, modalState, setModalState} = usePick();
 
   return (
     
@@ -20,9 +20,13 @@ function App() {
       {
         (userPick) ? <Result /> : <Main />
       }
-      <div className='rules'>
+      <div className='rules' onClick={()=> setModalState(true)}>
         <span>RULES</span>
       </div>
+
+      {
+        modalState && <RulesModal /> 
+      }
     </Wrapper>
     
   );
