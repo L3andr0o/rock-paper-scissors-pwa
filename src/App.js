@@ -59,7 +59,7 @@ function App() {
         <button className='rules' onClick={()=> setModalState(true)}>
           <span>RULES</span>
         </button>
-        {isReadyForInstall && <button className='downloadBtn' onClick={downloadApp}>descargar</button>}
+        {isReadyForInstall && <button className='downloadBtn' onClick={downloadApp}>DOWNLOAD</button>}
       </div>
 
       {
@@ -80,6 +80,8 @@ const Wrapper = styled.div`
     left: calc(10%);
     bottom: 30px;
     width: 80%;
+    display: flex;
+    justify-content: space-between;
     .rules,.downloadBtn{
     border: 1px solid #fff;
     width: 7em;
