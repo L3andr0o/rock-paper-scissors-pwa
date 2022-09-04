@@ -27,7 +27,7 @@ const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     position: relative;
-    max-width: 380px;
+    max-width: 400px;
     @media (min-width: 425px) {
         margin: 80px auto;
       }

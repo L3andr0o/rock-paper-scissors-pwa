@@ -29,8 +29,8 @@ export default function Result(){
 const Wrapper = styled.div`
     width: 80%;
     margin: 100px auto;
-    z-index: -10 !important;
-    max-width: 380px;
+    position: relative;
+    max-width: 400px;
     @media (min-width: 425px) {
         margin: 80px auto;
       }
@@ -43,9 +43,7 @@ const Wrapper = styled.div`
         transform: translateX(-100vw);
         animation: translate .3s cubic-bezier(0.175, 0.885, 0.32, 1.275) 2s 1 normal forwards;
         @keyframes translate {
-            100%{
-                transform: translateX(0%);
-            }
+            100%{transform: translateX(0%);}
         }
         span{
             color: #fff;
@@ -76,6 +74,8 @@ const Wrapper = styled.div`
         width: 100%;
         display: flex;
         justify-content: space-between;
+        z-index: -10 !important;
+        pointer-events: none;
     }
     .first-div,.second-div{
         display: flex;
