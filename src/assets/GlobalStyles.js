@@ -8,7 +8,7 @@ const GlobalStyles = createGlobalStyle`
         font-family: 'Barlow Semi Condensed';
     }
     body{
-        height: 100vh;
+        height: 100dvh;
         background: linear-gradient(to bottom, hsl(214, 47%, 23%), hsl(237, 49%, 15%));
         z-index: -20;
         overflow-x: hidden;

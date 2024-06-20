@@ -73,7 +73,7 @@ function App() {
 const Wrapper = styled.div`
   width: 100%;
   height: fit-content;
-  min-height: 100vh;
+  min-height: 100dvh;
   position: absolute;
   .appBottom{
     position: absolute;
